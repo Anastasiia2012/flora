@@ -1,5 +1,22 @@
 'use strict';
 
+/* ─── Inject external SVG sprite ────────────────────────────── */
+(async function injectSprite() {
+  try {
+    const res = await fetch('icons/icons.svg');
+    if (!res.ok) throw new Error(`Sprite fetch failed: ${res.status}`);
+    const text = await res.text();
+    const wrapper = document.createElement('div');
+    wrapper.style.display = 'none';
+    wrapper.setAttribute('aria-hidden', 'true');
+    wrapper.innerHTML = text;
+    document.body.insertBefore(wrapper, document.body.firstChild);
+  } catch (err) {
+    console.error('Could not load icons.svg sprite:', err);
+  }
+})();
+
+
 /* ─── Mobile Menu ─────────────────────────────────────────── */
 const burgerBtn  = document.querySelector('.burger');
 const closeBtn   = document.querySelector('.mobile-menu__close');
@@ -103,12 +120,12 @@ function initSlider(sliderEl, opts = {}) {
 
 // Init both sliders
 initSlider(
-  document.querySelector('.bestsellers .slider'),
-  { mobile: 1, tablet: 2, desktop: 3 }
+    document.querySelector('.bestsellers .slider'),
+    { mobile: 1, tablet: 2, desktop: 3 }
 );
 initSlider(
-  document.querySelector('.feedback .feedback__slider'),
-  { mobile: 1, tablet: 2, desktop: 3 }
+    document.querySelector('.feedback .feedback__slider'),
+    { mobile: 1, tablet: 2, desktop: 3 }
 );
 
 

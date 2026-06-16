@@ -28,10 +28,12 @@ button, [type="button"] { -webkit-appearance: button; }
   --c-text:           #1a1a1a;
   --c-text-muted:     #5a5a5a;
   --c-heading:        #111111;
+  --c-heading-arrow: #D9FBCF;
+  --c-heading-hover:  #030C0126;
   --c-border:         #e4e4e4;
   --c-border-light:   #ebebeb;
   --c-accent:         #b4ea1a;   /* lime green from design */
-  --c-accent-hover:   #9fd018;
+  --c-accent-hover:   #030C01;
   --c-dot:            #d0d0d0;
   --c-dot-active:     #111111;
   --c-card-shadow:    rgba(0,0,0,0.06);
@@ -41,6 +43,7 @@ button, [type="button"] { -webkit-appearance: button; }
   /* Typography — serif for headings, sans for body */
   --ff-sans:    'Raleway', sans-serif;
   --ff-serif:   'Playfair Display', serif;
+  --ff-hanuman:    'Hanuman', sans-serif;
   --fw-400: 400;
   --fw-500: 500;
   --fw-600: 600;
@@ -110,15 +113,15 @@ body {
 
 .btn--accent {
   background-image: linear-gradient(
-                  135deg,
-                  var(--l-gradient) 0%,
-                  var(--r-gradient) 100%
-          );
+          135deg,
+          var(--l-gradient) 0%,
+          var(--r-gradient) 100%
+  );
   color: var(--c-black);
 }
 .btn--accent:hover { background-color: var(--c-accent-hover); transform: translateY(-1px); }
 
-.btn--full { width: 100%; }
+.btn--full { width: 100%; gap: 10px; }
 
 /* ============================================================
    Logo
@@ -255,7 +258,7 @@ body {
 }
 
 .mobile-menu__link {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: var(--fw-500);
   color: var(--c-heading);
   transition: color var(--t);
@@ -290,8 +293,8 @@ body {
 }
 
 .hero__title {
-  font-family: var(--ff-serif);
-  font-size: 46px;
+  font-family: var(--ff-hanuman);
+  font-size: 36px;
   font-weight: var(--fw-400);
   line-height: 1.12;
   color: var(--c-heading);
@@ -479,6 +482,7 @@ body {
   margin-top: 28px;
 }
 
+
 /* Dots */
 .slider__dots { display: flex; gap: 8px; align-items: center; }
 
@@ -510,7 +514,7 @@ body {
   transition: background-color var(--t), color var(--t), border-color var(--t);
 }
 .slider__arrow:hover {
-  background-color: var(--c-heading);
+  background-color: var(--c-heading-arrow);
   color: var(--c-white);
   border-color: var(--c-heading);
 }
@@ -565,7 +569,7 @@ body {
 }
 
 .bouquets__more { display: flex; justify-content: center; }
-.js-show-more {width: 406px;}
+.js-show-more { width: 100%; max-width: 406px; }
 
 /* ============================================================
    FEEDBACK — white bg, 3 cards, no header bg
@@ -679,6 +683,9 @@ body {
   flex-shrink: 0;
   min-width: 260px;
 }
+@media (max-width: 767px) {
+  .contacts__info { min-width: 0; }
+}
 
 .contacts__item {
   display: flex;
@@ -791,7 +798,7 @@ body {
 }
 
 .footer__nav-link {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: var(--fw-400);
   color: var(--c-text);
   transition: color var(--t);
