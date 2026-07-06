@@ -137,9 +137,10 @@ function openProductModal(bouquet) {
   const buyBtn = productModal.querySelector('.product-modal__buy-btn');
   const qty    = productModal.querySelector('.product-modal__qty');
 
-  // Backend uses photoURL; frontend images folder as fallback
-  img.src    = bouquet.photoURL || `./images/${bouquet.image}@1x.png`;
-  img.srcset = bouquet.photoURL ? '' : `./images/${bouquet.image}@2x.png 2x`;
+  // Resolve image same way as card template
+  const { src: _src, srcset: _srcset } = resolveImg(bouquet);
+  img.src    = _src;
+  img.srcset = _srcset;
   img.alt    = bouquet.title || bouquet.name;
   name.textContent  = bouquet.title || bouquet.name;
   price.textContent = `$${bouquet.price}`;
@@ -164,15 +165,28 @@ orderForm.addEventListener('submit', e => {
 const state = { page: 1, category: '', search: '', hasMore: true, loading: false };
 
 /* ─── Card template ───────────────────────────────────────── */
+function resolveImg(b) {
+  if (b.photoURL && b.photoURL.startsWith('images/')) {
+    return {
+      src:    './' + b.photoURL,
+      srcset: './' + b.photoURL.replace('@1x.', '@2x.') + ' 2x',
+    };
+  }
+  if (b.photoURL && (b.photoURL.startsWith('http') || b.photoURL.startsWith('//'))) {
+    return { src: b.photoURL, srcset: '' };
+  }
+  const base = 'images/product1/mixed-flower-bouquet-wooden-table';
+  return { src: './' + base + '@1x.png', srcset: './' + base + '@2x.png 2x' };
+}
+
 function cardHTML(b, modifier) {
   const cls  = modifier ? `bouquet-card ${modifier}` : 'bouquet-card';
-  const img  = b.photoURL || `./images/${b.image || 'product1/mixed-flower-bouquet-wooden-table'}@1x.png`;
-  const img2 = b.photoURL ? '' : `srcset="./images/${b.image || 'product1/mixed-flower-bouquet-wooden-table'}@2x.png 2x"`;
-  const name = b.title || b.name;
+  const name = b.title || b.name || '';
+  const { src, srcset } = resolveImg(b);
   return `
     <article class="${cls}" data-id="${b.id}" style="cursor:pointer">
       <div class="bouquet-card__img-wrap">
-        <img class="bouquet-card__img" src="${img}" ${img2} alt="${name}" width="600" height="450" loading="lazy"/>
+        <img class="bouquet-card__img" src="${src}" srcset="${srcset}" alt="${name}" width="600" height="450" loading="lazy"/>
       </div>
       <h3 class="bouquet-card__name">${name}</h3>
       <p class="bouquet-card__desc">${b.description}</p>
@@ -195,7 +209,10 @@ async function loadBestsellers() {
     track.querySelectorAll('.bouquet-card').forEach((el, i) =>
       el.addEventListener('click', () => openProductModal(list[i]))
     );
-    initSlider(document.querySelector('.bestsellers .slider'), { mobile: 1, tablet: 2, desktop: 3 });
+    // Defer slider init until images have layout dimensions
+    requestAnimationFrame(() =>
+      initSlider(document.querySelector('.bestsellers .slider'), { mobile: 1, tablet: 2, desktop: 3 })
+    );
   } catch {
     track.innerHTML = '<p class="api-error">Could not load bestsellers. Start the backend: <code>npm run dev</code></p>';
   }
