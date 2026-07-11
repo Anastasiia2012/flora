@@ -8,410 +8,460 @@
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet" />
+  <link
+          href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Roboto+Slab:wght@100..900&display=swap"
+          rel="stylesheet"
+  />
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
 
-<header class="header">
-  <div class="container">
-    <div class="header__inner">
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+
+        <a href="#" class="logo" aria-label="Flora — home">
+          <svg class="logo__svg" width="84" height="36" aria-hidden="true" focusable="false"><use href="#logo-flora"/></svg>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list">
+            <li><a href="#about"       class="nav__link">About Us</a></li>
+            <li><a href="#bestsellers" class="nav__link">Bestsellers</a></li>
+            <li><a href="#bouquets"    class="nav__link">Bouquets</a></li>
+            <li><a href="#feedback"    class="nav__link">Feedback</a></li>
+            <li><a href="#contacts"    class="nav__link">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <a href="#bouquets" class="btn btn--accent header__cta">Explore Bouquets</a>
+
+        <button type="button" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="mobile-menu__top">
       <a href="#" class="logo" aria-label="Flora — home">
-        <svg class="logo__svg" width="84" height="36" aria-hidden="true" focusable="false"><use href="#logo-flora"/></svg>
+        <svg class="logo__icon" aria-hidden="true" focusable="false"><use href="#logo-flower"/></svg>
+        <span class="logo__text">flora</span>
       </a>
-      <nav class="nav" aria-label="Main navigation">
-        <ul class="nav__list">
-          <li><a href="#about"       class="nav__link">About Us</a></li>
-          <li><a href="#bestsellers" class="nav__link">Bestsellers</a></li>
-          <li><a href="#bouquets"    class="nav__link">Bouquets</a></li>
-          <li><a href="#feedback"    class="nav__link">Feedback</a></li>
-          <li><a href="#contacts"    class="nav__link">Contacts</a></li>
-        </ul>
-      </nav>
-      <a href="#bouquets" class="btn btn--accent header__cta">Explore Bouquets</a>
-      <button type="button" class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-menu"/></svg>
+      <button type="button" class="mobile-menu__close" aria-label="Close menu">
+        <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
       </button>
     </div>
-  </div>
-</header>
 
-<main>
-
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-heading">
-    <div class="container">
-      <div class="hero__inner">
-        <div class="hero__content">
-          <h1 id="hero-heading" class="hero__title">Brighten Your Day with Our Stunning Bouquets</h1>
-          <p class="hero__text">At Flora, we believe that every occasion deserves a beautiful bouquet. Our expertly crafted arrangements are designed to bring joy and elegance to your celebrations.</p>
-          <a href="#bestsellers" class="btn btn--accent">Explore Our Bestsellers</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero__image-wrap">
-      <img
-        class="hero__image"
-        src="./images/your-day@1x.png"
-        srcset="./images/your-day@2x.png 2x"
-        alt="A beautiful pink and white flower bouquet with peonies, roses and greenery held in hands against a light background"
-        width="900" height="600" loading="eager"
-      />
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about" aria-labelledby="about-heading">
-    <div class="container">
-      <div class="about__inner">
-        <div class="about__content">
-          <svg class="about__icon" width="96" height="85" aria-hidden="true" focusable="false"><use href="#logo-flower"/></svg>
-          <h2 id="about-heading" class="about__title">Our Passion for Floral Artistry</h2>
-          <p class="about__text">At Flora, we believe that every bouquet tells a story. Our team meticulously crafts each arrangement, blending creativity with the freshest blooms to create stunning pieces for every occasion.</p>
-        </div>
-        <div class="about__image-wrap">
-          <img
-            class="about__image"
-            src="./images/elevated-view-female-florist-arranging-white-peony-flowers-shop@1x.png"
-            srcset="./images/elevated-view-female-florist-arranging-white-peony-flowers-shop@2x.png 2x"
-            alt="A florist in a green apron carefully arranging large white peony flowers on a workbench surrounded by lush greenery"
-            width="800" height="600" loading="lazy"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BESTSELLERS — dynamic via API -->
-  <section class="bestsellers" id="bestsellers" aria-labelledby="bestsellers-heading">
-    <div class="container">
-      <h2 id="bestsellers-heading" class="section-title">Top-Selling Bouquets</h2>
-      <div class="slider">
-        <!-- Cards injected by JS -->
-        <div class="slider__track"></div>
-        <div class="slider__controls">
-          <div class="slider__dots" role="tablist" aria-label="Slider pagination">
-            <!-- Dots injected by JS -->
-          </div>
-          <div class="slider__arrows">
-            <button type="button" class="slider__arrow" data-dir="prev" aria-label="Previous slide">
-              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"/></svg>
-            </button>
-            <button type="button" class="slider__arrow" data-dir="next" aria-label="Next slide">
-              <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-arrow-right"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOUQUETS CATALOGUE — dynamic, paginated, filtered -->
-  <section class="bouquets" id="bouquets" aria-labelledby="bouquets-heading">
-    <div class="container">
-      <h2 id="bouquets-heading" class="section-title section-title--centered">Bouquets</h2>
-      <p class="section-subtitle">Explore our stunning selection of fresh flower bouquets.</p>
-
-      <!-- Search -->
-      <div class="bouquets__search-wrap">
-        <label for="bouquets-search" class="visually-hidden">Search bouquets</label>
-        <input
-          id="bouquets-search"
-          class="bouquets__search js-search"
-          type="search"
-          name="search"
-          placeholder="Search bouquets…"
-          autocomplete="off"
-        />
-      </div>
-
-      <!-- Category filters -->
-      <div class="bouquets__filters" role="group" aria-label="Filter by category">
-        <button class="btn btn--filter js-filter-btn is-active" type="button" data-category="">All</button>
-        <button class="btn btn--filter js-filter-btn" type="button" data-category="bestseller">Bestseller</button>
-        <button class="btn btn--filter js-filter-btn" type="button" data-category="wedding">Wedding</button>
-        <button class="btn btn--filter js-filter-btn" type="button" data-category="seasonal">Seasonal</button>
-        <button class="btn btn--filter js-filter-btn" type="button" data-category="classic">Classic</button>
-      </div>
-
-      <!-- Grid — cards injected by JS -->
-      <ul class="bouquets__grid"></ul>
-
-      <!-- Empty state -->
-      <p class="bouquets__empty" hidden>No bouquets found. Try a different search or category.</p>
-
-      <!-- Load More -->
-      <div class="bouquets__more">
-        <button type="button" class="btn btn--accent js-load-more" hidden>Load More</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEEDBACK -->
-  <section class="feedback" id="feedback" aria-labelledby="feedback-heading">
-    <div class="container">
-      <h2 id="feedback-heading" class="section-title section-title--centered">What our clients say</h2>
-      <div class="feedback__slider">
-        <div class="feedback__track">
-          <article class="feedback-card">
-            <blockquote class="feedback-card__quote">
-              <p>"Flora made my anniversary unforgettable with their beautiful arrangement!"</p>
-            </blockquote>
-            <p class="feedback-card__author">Emma T.</p>
-          </article>
-          <article class="feedback-card">
-            <blockquote class="feedback-card__quote">
-              <p>"Absolutely stunning bouquet! It looked even better than the photo and arrived right on time."</p>
-            </blockquote>
-            <p class="feedback-card__author">Daniel R.</p>
-          </article>
-          <article class="feedback-card">
-            <blockquote class="feedback-card__quote">
-              <p>"The service was exceptional, and the flowers were fresh!"</p>
-            </blockquote>
-            <p class="feedback-card__author">Olivia M.</p>
-          </article>
-        </div>
-        <div class="feedback__controls">
-          <button type="button" class="slider__arrow" data-dir="prev" aria-label="Previous review">
-            <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"/></svg>
-          </button>
-          <button type="button" class="slider__arrow" data-dir="next" aria-label="Next review">
-            <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-arrow-right"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTS -->
-  <section class="contacts" id="contacts" aria-labelledby="contacts-heading">
-    <div class="container">
-      <div class="contacts__top">
-        <div class="contacts__left">
-          <p class="contacts__label">Connect</p>
-          <h2 id="contacts-heading" class="contacts__title">Get in Touch</h2>
-          <p class="contacts__text">We're here to assist you with all your floral needs and inquiries.</p>
-        </div>
-        <ul class="contacts__info">
-          <li class="contacts__item">
-            <svg class="contacts__item-icon" aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>
-            <div>
-              <p class="contacts__item-label">Phone</p>
-              <p class="contacts__item-text"><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
-            </div>
-          </li>
-          <li class="contacts__item">
-            <svg class="contacts__item-icon" aria-hidden="true" focusable="false"><use href="#icon-location"/></svg>
-            <div>
-              <p class="contacts__item-label">Store</p>
-              <address class="contacts__item-text">
-                <a href="https://www.google.com/maps/search/?api=1&query=456+Floral+Ave,+Sydney+NSW+2000+AU"
-                   target="_blank" rel="noopener noreferrer">
-                  456 Floral Ave, Sydney NSW 2000 AU
-                </a>
-              </address>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="contacts__image-wrap">
-        <img
-          class="contacts__image"
-          src="./images/photo-florist-holding-beautiful-flowers-flower-shop@1x.png"
-          srcset="./images/photo-florist-holding-beautiful-flowers-flower-shop@2x.png 2x"
-          alt="A florist in an apron wrapping a fresh bouquet of yellow tulips and greenery at a flower shop workbench"
-          width="1400" height="500" loading="lazy"
-        />
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__inner">
-      <a href="#" class="footer__logo" aria-label="Flora — home">
-        <svg class="footer__logo-svg" width="294" height="126" aria-hidden="true" focusable="false"><use href="#logo-flora"/></svg>
-      </a>
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <ul class="footer__nav-list">
-          <li><a href="#about"       class="footer__nav-link">About Us</a></li>
-          <li><a href="#bestsellers" class="footer__nav-link">Bestsellers</a></li>
-          <li><a href="#bouquets"    class="footer__nav-link">Bouquets</a></li>
-          <li><a href="#feedback"    class="footer__nav-link">Feedback</a></li>
-          <li><a href="#contacts"    class="footer__nav-link">Contacts</a></li>
-        </ul>
-      </nav>
-      <ul class="footer__socials">
-        <li>
-          <a href="https://www.facebook.com/" target="_blank" class="footer__social" aria-label="Facebook">
-            <svg width="40" height="40" aria-hidden="true" focusable="false"><use href="#icon-facebook"/></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/" target="_blank" class="footer__social" aria-label="Instagram">
-            <svg width="40" height="40" aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg>
-          </a>
-        </li>
-        <li>
-          <a href="https://x.com/" target="_blank" class="footer__social" aria-label="X (Twitter)">
-            <svg width="40" height="40" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
-          </a>
-        </li>
+    <nav aria-label="Mobile navigation">
+      <ul class="mobile-menu__nav">
+        <li><a href="#about"       class="mobile-menu__link">About Us</a></li>
+        <li><a href="#bestsellers" class="mobile-menu__link">Bestsellers</a></li>
+        <li><a href="#bouquets"    class="mobile-menu__link">Bouquets</a></li>
+        <li><a href="#feedback"    class="mobile-menu__link">Feedback</a></li>
+        <li><a href="#contacts"    class="mobile-menu__link">Contacts</a></li>
       </ul>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <div class="container">
-      <p class="footer__copy">© 2025 Flora. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+    </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-  <div class="mobile-menu__top">
-    <a href="#" class="logo" aria-label="Flora — home">
-      <svg width="84" height="36" aria-hidden="true" focusable="false"><use href="#logo-flora"/></svg>
-    </a>
-    <button type="button" class="mobile-menu__close" aria-label="Close menu">
-      <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
-    </button>
+    <a href="#bouquets" class="btn btn--accent btn--full" style="margin-top:auto">Explore Bouquets</a>
   </div>
-  <nav aria-label="Mobile navigation">
-    <ul class="mobile-menu__nav">
-      <li><a href="#about"       class="mobile-menu__link">About Us</a></li>
-      <li><a href="#bestsellers" class="mobile-menu__link">Bestsellers</a></li>
-      <li><a href="#bouquets"    class="mobile-menu__link">Bouquets</a></li>
-      <li><a href="#feedback"    class="mobile-menu__link">Feedback</a></li>
-      <li><a href="#contacts"    class="mobile-menu__link">Contacts</a></li>
-    </ul>
-  </nav>
-  <a href="#bouquets" class="btn btn--accent btn--full">Explore Bouquets</a>
-</div>
 
-<!-- ═══════════════════════════════════════════
-     PRODUCT DETAILS MODAL
-     ═══════════════════════════════════════════ -->
-<div class="modal backdrop" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
-  <div class="modal__dialog modal__dialog--wide">
-    <button type="button" class="modal__close" aria-label="Close">
-      <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
-    </button>
-    <div class="product-modal__inner">
-      <div class="product-modal__img-wrap">
-        <img class="product-modal__img" src="" alt="" width="540" height="560" />
+  <main>
+
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <h1 id="hero-heading" class="hero__title">Brighten Your Day with Our Stunning Bouquets</h1>
+            <p class="hero__text">At Flora, we believe that every occasion deserves a beautiful bouquet. Our expertly crafted arrangements are designed to bring joy and elegance to your celebrations.</p>
+            <a href="#bestsellers" class="btn btn--accent">Explore Our Bestsellers</a>
+          </div>
+        </div>
       </div>
-      <div class="product-modal__info">
-        <h2 id="product-modal-title" class="product-modal__name">—</h2>
-        <p class="product-modal__price">—</p>
-        <p class="product-modal__desc">—</p>
-        <div class="product-modal__actions">
-          <button type="button" class="btn btn--accent product-modal__buy-btn">Buy now</button>
-          <input
-            class="product-modal__qty"
-            type="number"
-            name="quantity"
-            value="1"
-            min="1"
-            max="99"
-            aria-label="Quantity"
+
+      <div class="hero__image-wrap">
+        <img
+          class="hero__image"
+          src="./images/your-day@1x.png"
+          srcset="./images/your-day@2x.png 2x"
+          alt="A beautiful pink and white flower bouquet with peonies, roses and greenery held in hands against a light background"
+          width="900" height="600"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__content">
+            <!-- flower icon -->
+            <svg class="about__icon" width="96" height="85" aria-hidden="true" focusable="false"><use href="#logo-flower"/></svg>
+            <h2 id="about-heading" class="about__title">Our Passion for Floral Artistry</h2>
+            <p class="about__text">At Flora, we believe that every bouquet tells a story. Our team meticulously crafts each arrangement, blending creativity with the freshest blooms to create stunning pieces for every occasion.</p>
+          </div>
+          <div class="about__image-wrap">
+            <img
+              class="about__image"
+              src="./images/elevated-view-female-florist-arranging-white-peony-flowers-shop@1x.png"
+              srcset="./images/elevated-view-female-florist-arranging-white-peony-flowers-shop@2x.png 2x"
+              alt="A florist in a green apron carefully arranging large white peony flowers on a workbench surrounded by lush greenery"
+              width="800" height="600"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="bestsellers" id="bestsellers" aria-labelledby="bestsellers-heading">
+      <div class="container">
+        <h2 id="bestsellers-heading" class="section-title">Top-Selling Bouquets</h2>
+
+        <div class="slider">
+          <div class="slider__track">
+
+            <article class="bouquet-card">
+              <div class="bouquet-card__img-wrap">
+                <img class="bouquet-card__img"
+                  src="./images/product1/perfect-gift-wonderful-flowers-womens-day-tender-smiling-brunet-woman-holding-front-face-bouquet-spring-flowerspace-text@1.png"
+                  srcset="./images/product1/perfect-gift-wonderful-flowers-womens-day-tender-smiling-brunet-woman-holding-front-face-bouquet-spring-flowerspace-text@2x.png 2x"
+                  alt="Spring Elegance — lush pink bouquet with tulips, roses and peonies tied with a pink ribbon against a dark blue background"
+                  width="600" height="450" loading="lazy"/>
+              </div>
+              <h3 class="bouquet-card__name">Spring Elegance</h3>
+              <p class="bouquet-card__desc">A delicate blend of peonies, tulips, and roses — perfect for springtime gifting and bright smiles.</p>
+              <p class="bouquet-card__price">$35</p>
+            </article>
+
+            <article class="bouquet-card">
+              <div class="bouquet-card__img-wrap">
+                <img class="bouquet-card__img"
+                  src="./images/product1/bridal-arrangement-wedding-flowers-closeup-decoration-roses-flowers-ornamental-plants-closeup@1.png"
+                  srcset="./images/product1/bridal-arrangement-wedding-flowers-closeup-decoration-roses-flowers-ornamental-plants-closeup@2x.png 2x"
+                  alt="Berry Chic — sophisticated bouquet of roses with seasonal greenery and vibrant berries on a light background"
+                  width="600" height="450" loading="lazy"/>
+              </div>
+              <h3 class="bouquet-card__name">Berry Chic</h3>
+              <p class="bouquet-card__desc">A stylish composition of roses, seasonal greenery and vibrant berries — a bold and elegant floral statement.</p>
+              <p class="bouquet-card__price">$40</p>
+            </article>
+
+            <article class="bouquet-card">
+              <div class="bouquet-card__img-wrap">
+                <img class="bouquet-card__img"
+                  src="./images/product1/mixed-flower-bouquet-wooden-table@1.png"
+                  srcset="./images/product1/mixed-flower-bouquet-wooden-table@2x.png 2x"
+                  alt="Lavender Dream — rich purple and lavender bouquet with alliums and roses against a dark background"
+                  width="600" height="450" loading="lazy"/>
+              </div>
+              <h3 class="bouquet-card__name">Lavender Dream</h3>
+              <p class="bouquet-card__desc">A rich bouquet with lavender, lisianthus, and roses — ideal for those who love deep hues and gentle fragrance.</p>
+              <p class="bouquet-card__price">$55</p>
+            </article>
+
+            <article class="bouquet-card">
+              <div class="bouquet-card__img-wrap">
+                <img class="bouquet-card__img"
+                     src="./images/product1/bridal-arrangement-wedding-flowers-closeup-decoration-roses-flowers-ornamental-plants-closeup@1.png"
+                     srcset="./images/product1/bridal-arrangement-wedding-flowers-closeup-decoration-roses-flowers-ornamental-plants-closeup@2x.png 2x"
+                     alt="Golden Hour — warm yellow tulips and mixed spring flowers"
+                  width="600" height="450" loading="lazy"/>
+              </div>
+              <h3 class="bouquet-card__name">Golden Hour</h3>
+              <p class="bouquet-card__desc">Warm sun-kissed hues of amber, gold and peach — the perfect gift to brighten anyone's day.</p>
+              <p class="bouquet-card__price">$42</p>
+            </article>
+
+            <article class="bouquet-card">
+              <div class="bouquet-card__img-wrap">
+                <img class="bouquet-card__img"
+                     src="./images/product1/mixed-flower-bouquet-wooden-table@1.png"
+                     srcset="./images/product1/mixed-flower-bouquet-wooden-table@2x.png 2x"
+                  alt="White Romance — elegant white roses and cream blooms"
+                  width="600" height="450" loading="lazy"/>
+              </div>
+              <h3 class="bouquet-card__name">White Romance</h3>
+              <p class="bouquet-card__desc">A timeless arrangement of white roses and cream blooms — pure, elegant and deeply romantic.</p>
+              <p class="bouquet-card__price">$48</p>
+            </article>
+
+            <article class="bouquet-card">
+              <div class="bouquet-card__img-wrap">
+                <img class="bouquet-card__img"
+                     src="./images/product1/mixed-flower-bouquet-wooden-table@1.png"
+                     srcset="./images/product1/mixed-flower-bouquet-wooden-table@2x.png 2x"
+                  alt="Peach Sunset — warm peach and coral roses with greenery"
+                  width="600" height="450" loading="lazy"/>
+              </div>
+              <h3 class="bouquet-card__name">Peach Sunset</h3>
+              <p class="bouquet-card__desc">Soft peach and coral tones blended with lush foliage — warm, radiant, and full of life.</p>
+              <p class="bouquet-card__price">$39</p>
+            </article>
+
+          </div><!-- /.slider__track -->
+
+          <div class="slider__controls">
+            <div class="slider__dots" role="tablist" aria-label="Slider pagination">
+              <button class="slider__dot is-active" type="button" aria-current="true"  aria-label="Go to slide 1"></button>
+              <button class="slider__dot"           type="button" aria-current="false" aria-label="Go to slide 2"></button>
+              <button class="slider__dot"           type="button" aria-current="false" aria-label="Go to slide 3"></button>
+              <button class="slider__dot"           type="button" aria-current="false" aria-label="Go to slide 4"></button>
+              <button class="slider__dot"           type="button" aria-current="false" aria-label="Go to slide 5"></button>
+              <button class="slider__dot"           type="button" aria-current="false" aria-label="Go to slide 6"></button>
+            </div>
+            <div class="slider__arrows">
+              <button type="button" class="slider__arrow" data-dir="prev" aria-label="Previous slide">
+                <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"/></svg>
+              </button>
+              <button type="button" class="slider__arrow" data-dir="next" aria-label="Next slide">
+                <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#icon-arrow-right"/></svg>
+              </button>
+            </div>
+          </div>
+        </div><!-- /.slider -->
+
+      </div>
+    </section>
+
+    <section class="bouquets" id="bouquets" aria-labelledby="bouquets-heading">
+      <div class="container">
+        <h2 id="bouquets-heading" class="section-title section-title--centered">Bouquets</h2>
+        <p class="section-subtitle">Explore our stunning selection of fresh flower bouquets.</p>
+
+        <!-- Category filter (resets page on change) -->
+        <div class="filter" role="group" aria-label="Filter bouquets by category">
+          <button type="button" class="filter__btn is-active" data-category="">All</button>
+          <button type="button" class="filter__btn" data-category="bestseller">Bestsellers</button>
+          <button type="button" class="filter__btn" data-category="wedding">Wedding</button>
+          <button type="button" class="filter__btn" data-category="seasonal">Seasonal</button>
+          <button type="button" class="filter__btn" data-category="classic">Classic</button>
+        </div>
+
+        <!-- Dynamic gallery — filled from the API via insertAdjacentHTML. No static markup. -->
+        <ul class="bouquets__grid js-gallery" aria-live="polite"></ul>
+
+        <!-- End / empty state message -->
+        <p class="bouquets__message js-message" hidden></p>
+
+        <div class="bouquets__more">
+          <button type="button" class="btn btn--accent js-load-more" hidden>Load more</button>
+          <!-- Loader sits UNDER the load-more button -->
+          <div class="loader js-loader" hidden aria-label="Loading">
+            <span class="loader__dot"></span>
+            <span class="loader__dot"></span>
+            <span class="loader__dot"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feedback" id="feedback" aria-labelledby="feedback-heading">
+      <div class="container">
+        <h2 id="feedback-heading" class="section-title section-title--centered">What our clients says</h2>
+
+        <div class="feedback__slider">
+          <div class="feedback__track js-feedback-track">
+            <!-- filled dynamically from /api/feedbacks -->
+          </div>
+
+          <div class="feedback__dots" role="tablist" aria-label="Feedback pagination">
+            <button class="slider__dot is-active" type="button" aria-selected="true"  aria-label="Go to review group 1"></button>
+            <button class="slider__dot" type="button" aria-selected="false" aria-label="Go to review group 2"></button>
+            <button class="slider__dot" type="button" aria-selected="false" aria-label="Go to review group 3"></button>
+            <button class="slider__dot" type="button" aria-selected="false" aria-label="Go to review group 4"></button>
+            <button class="slider__dot" type="button" aria-selected="false" aria-label="Go to review group 5"></button>
+            <button class="slider__dot" type="button" aria-selected="false" aria-label="Go to review group 6"></button>
+          </div>
+        
+
+          <div class="feedback__controls">
+            <button type="button" class="slider__arrow" data-dir="prev" aria-label="Previous review">
+              <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"/></svg>
+            </button>
+            <button type="button" class="slider__arrow" data-dir="next" aria-label="Next review">
+              <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#icon-arrow-right"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contacts" id="contacts" aria-labelledby="contacts-heading">
+      <div class="container">
+        <div class="contacts__top">
+          <div class="contacts__left">
+            <p class="contacts__label">Connect</p>
+            <h2 id="contacts-heading" class="contacts__title">Get in Touch</h2>
+            <p class="contacts__text">We're here to assist you with all your floral needs and inquiries.</p>
+          </div>
+
+          <ul class="contacts__info">
+            <li class="contacts__item">
+              <svg class="contacts__item-icon" aria-hidden="true" focusable="false"><use href="#icon-phone"/></svg>
+              <div>
+                <p class="contacts__item-label">Phone</p>
+                <p class="contacts__item-text"><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+              </div>
+            </li>
+            <li class="contacts__item">
+              <svg class="contacts__item-icon" aria-hidden="true" focusable="false"><use href="#icon-location"/></svg>
+              <div>
+                <p class="contacts__item-label">Store</p>
+                <address class="contacts__item-text">456 Floral Ave, Sydney NSW 2000 AU</address>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contacts__image-wrap">
+          <img
+            class="contacts__image"
+            src="./images/photo-florist-holding-beautiful-flowers-flower-shop@1x.png"
+            srcset="./images/photo-florist-holding-beautiful-flowers-flower-shop@2x.png 2x"
+            alt="A florist in an apron wrapping a fresh bouquet of yellow tulips and greenery at a flower shop workbench"
+            width="1400" height="500"
+            loading="lazy"
           />
         </div>
       </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+
+        <a href="#" class="footer__logo" aria-label="Flora — home">
+            <svg class="footer__logo-svg" width="294" height="126" aria-hidden="true" focusable="false"><use href="#logo-flora"/></svg>
+        </a>
+
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <ul class="footer__nav-list">
+            <li><a href="#about"       class="footer__nav-link">About Us</a></li>
+            <li><a href="#bestsellers" class="footer__nav-link">Bestsellers</a></li>
+            <li><a href="#bouquets"    class="footer__nav-link">Bouquets</a></li>
+            <li><a href="#feedback"    class="footer__nav-link">Feedback</a></li>
+            <li><a href="#contacts"    class="footer__nav-link">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <ul class="footer__socials">
+          <li>
+            <a href="https://www.facebook.com/" class="footer__social" aria-label="Facebook">
+              <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#icon-facebook"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" class="footer__social" aria-label="Instagram">
+              <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#icon-instagram"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" class="footer__social" aria-label="X (Twitter)">
+              <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#icon-x"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Subscribe form (Block 2: semantic markup) -->
+        <form class="subscribe js-subscribe" novalidate>
+          <label class="subscribe__label" for="subscribe-email">Subscribe to our newsletter</label>
+          <div class="subscribe__row">
+            <input
+              class="subscribe__input"
+              type="email"
+              id="subscribe-email"
+              name="subscribeEmail"
+              placeholder="Enter your email"
+              autocomplete="email"
+              required
+            />
+            <button type="submit" class="btn btn--accent subscribe__btn">Subscribe</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copy">© 2025 Flora. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Product Details modal ===== -->
+  <div class="modal js-product-modal" id="product-modal" aria-hidden="true">
+    <div class="modal__backdrop js-modal-backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--product" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+      <button type="button" class="modal__close" aria-label="Close" data-close>
+        <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
+      </button>
+
+      <div class="product js-product-content">
+        <!-- filled dynamically -->
+      </div>
     </div>
   </div>
-</div>
 
-<!-- ═══════════════════════════════════════════
-     ORDER MODAL
-     ═══════════════════════════════════════════ -->
-<div class="modal backdrop" id="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
-  <div class="modal__dialog">
-    <button type="button" class="modal__close" aria-label="Close">
-      <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
-    </button>
-    <h2 id="order-modal-title" class="modal__title">Order</h2>
+  <!-- ===== Order modal ===== -->
+  <div class="modal js-order-modal" id="order-modal" aria-hidden="true">
+    <div class="modal__backdrop js-modal-backdrop" data-close></div>
+    <div class="modal__dialog modal__dialog--order" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+      <button type="button" class="modal__close" aria-label="Close" data-close>
+        <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#icon-close"/></svg>
+      </button>
 
-    <form id="order-form" class="order-form" novalidate>
+      <h2 class="modal__title" id="order-modal-title">Order</h2>
 
-      <div class="form-field">
-        <label class="form-label" for="order-name">Name*</label>
-        <input
-          class="form-input"
-          id="order-name"
-          type="text"
-          name="name"
-          placeholder="Ann"
-          required
-          autocomplete="name"
-        />
-      </div>
+      <form class="order-form js-order-form" novalidate>
+        <div class="form-field">
+          <label class="form-field__label" for="order-name">Name*</label>
+          <input class="form-field__input" type="text" id="order-name" name="customerName"
+                 placeholder="Ann" autocomplete="name" required />
+        </div>
 
-      <div class="form-field">
-        <label class="form-label" for="order-phone">Phone*</label>
-        <input
-          class="form-input"
-          id="order-phone"
-          type="tel"
-          name="phone"
-          placeholder="+1 (555) 123-4567"
-          required
-          autocomplete="tel"
-        />
-      </div>
+        <div class="form-field">
+          <label class="form-field__label" for="order-phone">Phone*</label>
+          <input class="form-field__input" type="tel" id="order-phone" name="customerPhone"
+                 placeholder="+1 (555) 123-4567" autocomplete="tel" required />
+        </div>
 
-      <div class="form-field">
-        <label class="form-label" for="order-address">Address*</label>
-        <input
-          class="form-input"
-          id="order-address"
-          type="text"
-          name="address"
-          placeholder="456 Floral Ave, Sydney NSW 2000 AU"
-          required
-          autocomplete="street-address"
-        />
-      </div>
+        <div class="form-field">
+          <label class="form-field__label" for="order-address">Adress*</label>
+          <input class="form-field__input" type="text" id="order-address" name="customerAddress"
+                 placeholder="456 Floral Ave, Sydney NSW 2000 AU" autocomplete="street-address" required />
+        </div>
 
-      <div class="form-field">
-        <label class="form-label" for="order-message">Message</label>
-        <textarea
-          class="form-input form-textarea"
-          id="order-message"
-          name="message"
-          placeholder="Type your message..."
-          rows="4"
-        ></textarea>
-      </div>
+        <div class="form-field">
+          <label class="form-field__label" for="order-message">Message</label>
+          <textarea class="form-field__input form-field__textarea" id="order-message" name="customerMessage"
+                    placeholder="Type your message..." rows="5"></textarea>
+        </div>
 
-      <!-- Custom SVG checkbox (Block 2 requirement) -->
-      <div class="form-field form-field--checkbox">
-        <label class="form-checkbox-label">
-          <input
-            class="form-checkbox-native visually-hidden"
-            type="checkbox"
-            name="agree"
-            required
-          />
-          <span class="form-checkbox-custom" aria-hidden="true">
-            <svg class="form-checkbox-icon" width="16" height="16" viewBox="0 0 16 16" focusable="false">
-              <polyline class="form-checkbox-check" points="2,8 6,12 14,4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <!-- Custom SVG-sprite checkbox (native input visually hidden) -->
+        <label class="checkbox">
+          <input class="checkbox__input visually-hidden" type="checkbox" name="agreement" required />
+          <span class="checkbox__box" aria-hidden="true">
+            <svg class="checkbox__check" width="14" height="14" focusable="false"><use href="#icon-check"/></svg>
           </span>
-          <span class="form-checkbox-text">I agree to the <a href="#" class="form-link">Terms &amp; Conditions</a></span>
+          <span class="checkbox__text">I agree to the licence agreement</span>
         </label>
-      </div>
 
-      <button type="submit" class="btn btn--accent btn--full">Go to Checkout</button>
-    </form>
+        <button type="submit" class="btn btn--accent order-form__submit">Go to Checkout</button>
+      </form>
+    </div>
   </div>
-</div>
 
-<!-- axios CDN (Block 3) -->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
